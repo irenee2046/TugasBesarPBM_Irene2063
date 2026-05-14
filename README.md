@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # tugas_besar_pbm
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# TugasBesarPBM_Irene2063
+>>>>>>> e8918a15121013fa35d2b4f0463ff7d1e96bd914

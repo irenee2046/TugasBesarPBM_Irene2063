@@ -47,8 +47,7 @@ class _SubmitScreenState extends State<SubmitScreen> {
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
-            child: const Text('Submit',
-                style: TextStyle(color: Colors.white)),
+            child: const Text('Submit', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -122,8 +121,10 @@ class _SubmitScreenState extends State<SubmitScreen> {
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.warning_amber_rounded,
-                              color: Colors.orange.shade700),
+                          Icon(
+                            Icons.warning_amber_rounded,
+                            color: Colors.orange.shade700,
+                          ),
                           const SizedBox(width: 10),
                           const Expanded(
                             child: Text(
@@ -145,7 +146,7 @@ class _SubmitScreenState extends State<SubmitScreen> {
                         padding: const EdgeInsets.all(20),
                         child: Column(
                           children: [
-                            // Nama Produk
+                            // nama Produk
                             TextFormField(
                               controller: _nameController,
                               decoration: InputDecoration(
@@ -155,13 +156,14 @@ class _SubmitScreenState extends State<SubmitScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
-                              validator: (value) => value == null || value.isEmpty
+                              validator: (value) =>
+                                  value == null || value.isEmpty
                                   ? 'Nama produk tidak boleh kosong'
                                   : null,
                             ),
                             const SizedBox(height: 16),
 
-                            // Harga
+                            // harga produk ny
                             TextFormField(
                               controller: _priceController,
                               keyboardType: TextInputType.number,
@@ -184,7 +186,7 @@ class _SubmitScreenState extends State<SubmitScreen> {
                             ),
                             const SizedBox(height: 16),
 
-                            // Deskripsi
+                            // deskripsi produknya
                             TextFormField(
                               controller: _descriptionController,
                               maxLines: 3,
@@ -198,7 +200,8 @@ class _SubmitScreenState extends State<SubmitScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
-                              validator: (value) => value == null || value.isEmpty
+                              validator: (value) =>
+                                  value == null || value.isEmpty
                                   ? 'Deskripsi tidak boleh kosong'
                                   : null,
                             ),
@@ -259,7 +262,9 @@ class _SubmitScreenState extends State<SubmitScreen> {
                         label: Text(
                           _isLoading ? 'Mengirim...' : 'Submit Tugas',
                           style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -312,15 +317,19 @@ class _SubmitScreenState extends State<SubmitScreen> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.indigo,
                 foregroundColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 14,
+                ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
               icon: const Icon(Icons.arrow_back),
-              label: const Text('Kembali ke Katalog',
-                  style: TextStyle(fontSize: 15)),
+              label: const Text(
+                'Kembali ke Katalog',
+                style: TextStyle(fontSize: 15),
+              ),
             ),
           ],
         ),

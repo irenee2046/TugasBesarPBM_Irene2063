@@ -88,9 +88,9 @@ class _ProductListScreenState extends State<ProductListScreen> {
 
   String _formatPrice(double price) {
     final formatted = price.toInt().toString().replaceAllMapped(
-          RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-          (m) => '${m[1]}.',
-        );
+      RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+      (m) => '${m[1]}.',
+    );
     return 'Rp $formatted';
   }
 
@@ -107,7 +107,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
         foregroundColor: Colors.white,
         elevation: 0,
         actions: [
-          // Tombol submit tugas
+          // ini tombol utk submit tugas
           IconButton(
             icon: const Icon(Icons.upload_file_rounded),
             tooltip: 'Submit Tugas',
@@ -118,7 +118,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
               );
             },
           ),
-          // Tombol logout
+          // ini tombol logout ny
           IconButton(
             icon: const Icon(Icons.logout),
             tooltip: 'Logout',
@@ -129,55 +129,60 @@ class _ProductListScreenState extends State<ProductListScreen> {
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : _errorMessage != null
-              ? Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(_errorMessage!,
-                          style: const TextStyle(color: Colors.red)),
-                      const SizedBox(height: 12),
-                      ElevatedButton(
-                        onPressed: _loadProducts,
-                        child: const Text('Coba Lagi'),
-                      ),
-                    ],
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    _errorMessage!,
+                    style: const TextStyle(color: Colors.red),
                   ),
-                )
-              : _products.isEmpty
-                  ? Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.inventory_2_outlined,
-                              size: 72, color: Colors.grey[400]),
-                          const SizedBox(height: 16),
-                          const Text(
-                            'Belum ada produk',
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
-                          ),
-                          const SizedBox(height: 8),
-                          const Text(
-                            'Tap tombol + untuk menambah produk',
-                            style: TextStyle(color: Colors.grey, fontSize: 13),
-                          ),
-                        ],
-                      ),
-                    )
-                  : RefreshIndicator(
-                      onRefresh: _loadProducts,
-                      child: ListView.builder(
-                        padding: const EdgeInsets.all(16),
-                        itemCount: _products.length,
-                        itemBuilder: (context, index) {
-                          final product = _products[index];
-                          return _ProductCard(
-                            product: product,
-                            formatPrice: _formatPrice,
-                            onDelete: () => _deleteProduct(product.id),
-                          );
-                        },
-                      ),
-                    ),
+                  const SizedBox(height: 12),
+                  ElevatedButton(
+                    onPressed: _loadProducts,
+                    child: const Text('Coba Lagi'),
+                  ),
+                ],
+              ),
+            )
+          : _products.isEmpty
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.inventory_2_outlined,
+                    size: 72,
+                    color: Colors.grey[400],
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Belum ada produk',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Tap tombol + untuk menambah produk',
+                    style: TextStyle(color: Colors.grey, fontSize: 13),
+                  ),
+                ],
+              ),
+            )
+          : RefreshIndicator(
+              onRefresh: _loadProducts,
+              child: ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: _products.length,
+                itemBuilder: (context, index) {
+                  final product = _products[index];
+                  return _ProductCard(
+                    product: product,
+                    formatPrice: _formatPrice,
+                    onDelete: () => _deleteProduct(product.id),
+                  );
+                },
+              ),
+            ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           final added = await Navigator.push<bool>(
@@ -195,7 +200,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   }
 }
 
-// Widget kartu produk
+// widget kartu produk
 class _ProductCard extends StatelessWidget {
   final ProductModel product;
   final String Function(double) formatPrice;
@@ -234,7 +239,7 @@ class _ProductCard extends StatelessWidget {
             ),
             const SizedBox(width: 14),
 
-            // Info produk
+            // info produk
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -266,7 +271,7 @@ class _ProductCard extends StatelessWidget {
               ),
             ),
 
-            // Tombol hapus
+            // ini tombol hpus produk
             IconButton(
               icon: const Icon(Icons.delete_outline, color: Colors.red),
               onPressed: onDelete,

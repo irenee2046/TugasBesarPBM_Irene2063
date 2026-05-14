@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isLoading = false;
   bool _obscurePassword = true;
 
-  // NIM sudah diisi otomatis
+  // nim otomatis
   @override
   void initState() {
     super.initState();
@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 24),
 
-              // Judul
+              //judul ini
               const Text(
                 'Katalog Produk',
                 style: TextStyle(
@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 36),
 
-              // Form
+              //form nya ini
               Card(
                 elevation: 2,
                 shape: RoundedRectangleBorder(

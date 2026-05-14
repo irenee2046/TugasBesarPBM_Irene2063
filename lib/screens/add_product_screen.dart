@@ -95,7 +95,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      // Nama Produk
+                      // nama Produk
                       TextFormField(
                         controller: _nameController,
                         decoration: InputDecoration(
@@ -115,7 +115,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       ),
                       const SizedBox(height: 16),
 
-                      // Harga
+                      // harga produk ny
                       TextFormField(
                         controller: _priceController,
                         keyboardType: TextInputType.number,
@@ -142,7 +142,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       ),
                       const SizedBox(height: 16),
 
-                      // Deskripsi
+                      // deskripsi produknya
                       TextFormField(
                         controller: _descriptionController,
                         maxLines: 4,
@@ -170,7 +170,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
               const SizedBox(height: 24),
 
-              // Tombol simpan
+              //ini tombol simpan
               SizedBox(
                 width: double.infinity,
                 height: 50,
@@ -196,7 +196,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   label: Text(
                     _isLoading ? 'Menyimpan...' : 'Simpan Produk',
                     style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

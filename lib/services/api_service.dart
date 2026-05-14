@@ -6,7 +6,7 @@ import '../models/product_model.dart';
 class ApiService {
   static const String baseUrl = 'https://task.itprojects.web.id';
 
-  // ─── TOKEN ───────────────────────────────────────────────
+  //token
 
   static Future<void> saveToken(String token) async {
     final prefs = await SharedPreferences.getInstance();
@@ -25,7 +25,7 @@ class ApiService {
 
   // ─── AUTH ────────────────────────────────────────────────
 
-  /// Login menggunakan NIM sebagai username dan password
+  //login pake nim sama pass nya juga nim
   static Future<Map<String, dynamic>> login(
     String username,
     String password,
@@ -51,9 +51,7 @@ class ApiService {
     }
   }
 
-  // ─── PRODUK ──────────────────────────────────────────────
-
-  /// Mengambil daftar semua draft produk milik akun sendiri
+  //ambil data produk punya masing masing
   static Future<List<ProductModel>> getProducts() async {
     final token = await getToken();
     final url = Uri.parse('$baseUrl/api/products');
@@ -77,7 +75,7 @@ class ApiService {
     }
   }
 
-  /// Menyimpan draft produk baru
+  //nyimpan produk baru ke draft
   static Future<bool> addProduct(
     String name,
     int price,
@@ -104,7 +102,7 @@ class ApiService {
     return data['success'] == true;
   }
 
-  /// Menghapus produk (soft delete)
+  /// ini utk hps produk tapi dia soft delet
   static Future<bool> deleteProduct(int id) async {
     final token = await getToken();
     final url = Uri.parse('$baseUrl/api/products/$id');
@@ -122,9 +120,7 @@ class ApiService {
     return data['success'] == true;
   }
 
-  // ─── SUBMIT ──────────────────────────────────────────────
-
-  /// Submit tugas ke sistem asisten praktikum
+  //ini utk submit tugs
   static Future<Map<String, dynamic>> submitTugas(
     String name,
     int price,
